@@ -128,7 +128,4 @@ class DataUtils(commands.Cog):
                 name=_("Boosted server"),
                 value=member.premium_since.strftime(self.TIME_FORMAT)
             ),
-
-                inline=False,
-            )
         await ctx.send(embed=em)
