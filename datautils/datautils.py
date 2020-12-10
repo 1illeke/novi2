@@ -121,6 +121,14 @@ class DataUtils(commands.Cog):
             em.add_field(name=_("Nickname"), value=member.nick)
         else:
             em.add_field(name=_("Name"), value=member.name)
+        em.add_field(
+            name=_("Client"),
+            value="📱: {}\n"
+            "🖥: {}\n"
+            "🌎: {}".format(
+                str(member.mobile_status).capitalize(),
+                str(member.desktop_status).capitalize(),
+                str(member.web_status).capitalize(),
             ),
         )
         em.add_field(name=_("Joined server"), value=member.joined_at.strftime(self.TIME_FORMAT))
@@ -129,12 +137,13 @@ class DataUtils(commands.Cog):
             name=_("Exists since"),
             value=member.created_at.strftime(self.TIME_FORMAT),
         )
+        if member.color.value:
+            em.add_field(name=_("Color"), value=member.colour)
         if member.premium_since:
             em.add_field(
                 name=_("Boosted server"),
-                value=member.premium_since.strftime(self.TIME_FORMAT),
+                value=member.premium_since.strftime(self.TIME_FORMAT)
             ),
-            
         )
         if member.voice:
             em.add_field(name=_("In voice channel"), value=member.voice.channel.mention)
