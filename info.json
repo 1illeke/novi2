@@ -1,8 +1,18 @@
 {
   "author": [
+    "Romashkoo",
     "Fixator10"
   ],
-  "short": "Cogs for Red-DiscordBot.",
-  "description": "Cogs for Red-DiscordBot. Including port of V2 leveler by Stevy.",
-  "install_msg": "Thanks for installing.\nIf you need help, visit my server: https://discord.gg/RJERbRM\nOr find me (Fixator10#7133) on Red-Cog Support: https://discord.gg/GET4DVk\nIf you know any language other than English/Russian - you can contribute your translation via Crowdin: <https://i18n.fixator10.ru>"
+  "install_msg": "Thanks for install.\nDon't forget to set api key (`[p]forecastapi`)\nIf you don't have registered DarkSky API key, this cog will be useless to you.\nDarkSky API closing at end of 2021 and im aware of this.",
+  "short": "Weather forecast",
+  "description": "Weather forecast. Requires \"semi-private\" DarkSky API key. For more info: https://blog.darksky.net",
+  "min_bot_version": "3.2.1",
+  "tags": [
+    "weather",
+    "forecast"
+  ],
+  "requirements": [
+    "python-forecastio"
+  ],
+  "end_user_data_statement": "This cog may store data about user's preferred measuring units.\nThis data can be remove by either via `[p]forecastunits reset` or via data removal request."
 }
