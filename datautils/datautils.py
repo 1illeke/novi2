@@ -144,7 +144,7 @@ class DataUtils(commands.Cog):
                 name=_("Boosted server"),
                 value=member.premium_since.strftime(self.TIME_FORMAT)
             ),
-        )
+        ),
         if member.voice:
             em.add_field(name=_("In voice channel"), value=member.voice.channel.mention)
         em.add_field(
