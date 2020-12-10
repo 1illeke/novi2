@@ -121,14 +121,6 @@ class DataUtils(commands.Cog):
             em.add_field(name=_("Nickname"), value=member.nick)
         else:
             em.add_field(name=_("Name"), value=member.name)
-        em.add_field(
-            name=_("Client"),
-            value="📱: {}\n"
-            "🖥: {}\n"
-            "🌎: {}".format(
-                str(member.mobile_status).capitalize(),
-                str(member.desktop_status).capitalize(),
-                str(member.web_status).capitalize(),
             ),
         )
         em.add_field(name=_("Joined server"), value=member.joined_at.strftime(self.TIME_FORMAT))
@@ -137,20 +129,12 @@ class DataUtils(commands.Cog):
             name=_("Exists since"),
             value=member.created_at.strftime(self.TIME_FORMAT),
         )
-        if member.color.value:
-            em.add_field(name=_("Color"), value=member.colour)
         if member.premium_since:
             em.add_field(
                 name=_("Boosted server"),
                 value=member.premium_since.strftime(self.TIME_FORMAT),
-            )
-        em.add_field(name=_("Bot?"), value=bool_emojify(member.bot))
-        em.add_field(name=_("System?"), value=bool_emojify(member.system))
-        em.add_field(
-            name=_("Server permissions"),
-            value="[{0}](https://fixator10.ru/permissions-calculator/?v={0})".format(
-                member.guild_permissions.value
             ),
+            
         )
         if member.voice:
             em.add_field(name=_("In voice channel"), value=member.voice.channel.mention)
@@ -176,6 +160,4 @@ class DataUtils(commands.Cog):
                 ),
                 inline=False,
             )
-        em.set_image(url=member.avatar_url_as(static_format="png", size=4096))
-        # em.set_thumbnail(url=member.default_avatar_url)
         await ctx.send(embed=em)
