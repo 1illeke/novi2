@@ -122,7 +122,7 @@ class DataUtils(commands.Cog):
         else:
             em.add_field(name=_("Name"), value=member.name)
         em.add_field(name=_("Joined server"), value=member.joined_at.strftime(self.TIME_FORMAT))
-        )
+        
         if member.premium_since:
             em.add_field(
                 name=_("Boosted server"),
